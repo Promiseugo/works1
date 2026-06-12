@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(112, 110, 92);
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      #header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      #about_me,
+      #cards_section,
+      #contact {
+        margin-bottom: 40px;
+      }
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .contact {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .nav {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #923838;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+      }
+      @media screen and (max-width: 768px) and (min-width: 480px) {
+        .container {
+          padding: 10px;
+        }
+        .card {
+          padding: 15px;
+        }
+        .nav a {
+          font-size: 16px;
+          margin: 0 10px;
+        }
+        #about_me,
+        #cards_section,
+        #contact {
+          margin-bottom: 30px;
+          text-align: center;
+        }
+        #contact_form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+      }
+      #contact_form input,
+      #contact_form textarea {
+        width: 100%;
+        max-width: 500px;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      #contact_form button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      /* Responsive typography */
+      h1 {
+        font-size: clamp(1.5rem, 3vw, 2.4rem);
+        margin: 0 0 0.5rem 0;
+      }
+      h2 {
+        font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+        margin-bottom: 0.75rem;
+      }
+      p {
+        font-size: clamp(1rem, 1.6vw, 1.125rem);
+        line-height: 1.6;
+        margin: 0 0 1rem 0;
+      }
+      p {
+        font-size: clamp(1rem, 1.9vw, 1.25rem);
+        line-height: 1.6;
+      }
+
+      /* Flexbox card layout (mobile-first) */
+      .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex: 1 1 320px;
+      }
+      .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 5px;
+      }
+
+      /* Hover effects and smooth transitions */
+      a,
+      .nav a,
+      button,
+      .card,
+      img {
+        transition:
+          transform 200ms ease,
+          box-shadow 200ms ease,
+          opacity 200ms ease,
+          color 200ms ease;
+      }
+      .nav a:hover {
+        transform: translateY(-3px);
+        color: #ffd7d7;
+        text-decoration: underline;
+      }
+      .card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .card img:hover,
+      img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      }
+      #contact_form button:hover {
+        transform: translateY(-2px);
+        background-color: #555;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Desktop layout: place cards in rows */
+      @media screen and (min-width: 768px) {
+        .cards {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 24px;
+        }
+        .card {
+          flex: 1 1 calc(50% - 12px);
+          max-width: calc(50% - 12px);
+        }
+        .container {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <span><a href="#header">Home</a></span>
+      <span><a href="#about_me">About Me</a></span>
+      <span><a href="#cards_section">Projects</a></span>
+      <span><a href="#contact">Contact</a></span>
+    </nav>
+
+    <div class="container">
+      <div id="header">
+        <h1>My Responsive Portfolio</h1>
+        <p>This is an Example of a Responsive Website</p>
+      </div>
+      <div id="about_me">
+        <h2>About Me</h2>
+        <p>Hello, I'm a web developer!</p>
+      </div>
+      <div id="cards_section">
+        <h2>My Projects</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Project 1</h3>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtHyQ4-swhNvCV2lm142jxwj7AfX880takXQ&s"
+              alt="Project 1 Image"
+            />
+            <p>Description of Project 1</p>
+          </div>
+          <div class="card">
+            <h3>Project 2</h3>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s"
+              alt="Project 2 Image"
+            />
+            <p>Description of Project 2</p>
+          </div>
+        </div>
+      </div>
+      <div id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="submit.php" method="POST" id="contact_form">
+          <label for="name">Name:</label><br />
+          <input type="text" id="name" name="name" required /><br /><br />
+          <label for="email">Email:</label><br />
+          <input type="email" id="email" name="email" required /><br /><br />
+          <label for="message">Message:</label><br />
+          <textarea id="message" name="message" rows="4" required></textarea
+          ><br /><br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
